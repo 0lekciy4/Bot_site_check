@@ -11,12 +11,13 @@ def get_whois_info(site):
     return whois_info
 
 def get_site_status(site):
-    status_code = requests.get(site).status_code
+    status_code = requests.get(site, allow_redirects=False).status_code
     return status_code
 
 if __name__ == '__main__':
-    site = 'ooo-sbs.ru'
+    site = 'https://ooo-sbs.ru'
     site_info = get_whois_info(site)
-    # site_status = get_site_status()
+    site_status = get_site_status(site)
     print(site_info)
+    print(site_status)
     
